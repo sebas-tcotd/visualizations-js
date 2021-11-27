@@ -1,14 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./index.css";
+
+import App from "./App";
+
+import D3 from "./pages/D3";
+import Chartjs from "./pages/Chartjs";
+import NotFound from "./pages/NotFound";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="d3" element={<D3 />} />
+        <Route path="chartjs" element={<Chartjs />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
